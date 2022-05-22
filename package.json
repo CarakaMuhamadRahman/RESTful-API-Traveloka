@@ -1,10 +1,11 @@
 {
   "name": "hotelranking-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "<html>\r   <h1>REFERENSI RESTFULL USING EXPRESS</h1>\r </html>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "CarakaMR",
   "license": "ISC",
@@ -12,5 +13,14 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mysql": "^2.18.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarakaMuhamadRahman/RESTful-API-Traveloka.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CarakaMuhamadRahman/RESTful-API-Traveloka/issues"
+  },
+  "homepage": "https://github.com/CarakaMuhamadRahman/RESTful-API-Traveloka#readme"
 }

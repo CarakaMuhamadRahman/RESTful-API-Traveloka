@@ -1,24 +1,25 @@
 const sql = require("./db.js");
 
 // Constructor
-const Tutorial = function(tutorial) {
-    this.name = tutorial.name;
-    this.location = tutorial.location;
+const Hotel = function(hotel) {
+    this.name = hotel.name;
+    this.location = hotel.location;
+    this.bookmark = hotel.bookmark;
 };
 
-Tutorial.create = (newTutorial, result) => {
-    sql.query("INSERT INTO hotel SET ?", newTutorial, (err, res) => {
+Hotel.create = (newHotel, result) => {
+    sql.query("INSERT INTO hotel SET ?", newHotel, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
             return;
         }
-        console.log("Created Hotel: ", { id: res.insertId, ...newTutorial });
-        result(null, { id: res.insertId, ...newTutorial });
+        console.log("Created Hotel: ", { id: res.insertId, ...newHotel });
+        result(null, { id: res.insertId, ...newHotel });
     });
 };
 
-Tutorial.getAll = (name, result) => {
+Hotel.getAll = (name, result) => {
     let query = "SELECT * FROM hotel";
     if (name) {
         query += ` WHERE name LIKE '%${name}%'`;
@@ -29,9 +30,9 @@ Tutorial.getAll = (name, result) => {
             result(null, err);
             return;
         }
-        console.log("tutorials: ", res);
+        console.log("hotel: ", res);
         result(null, res);
     });
 };
 
-module.exports = Tutorial;
+module.exports = Hotel;

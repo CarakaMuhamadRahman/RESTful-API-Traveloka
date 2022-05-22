@@ -1,4 +1,4 @@
-const Tutorial = require("../models/tutorial.model.js");
+const Hotel = require("../models/hotel.model.js");
 
 // Create and save a new hotel
 exports.create = (req, res) => {
@@ -10,18 +10,19 @@ exports.create = (req, res) => {
     }
 
     // Create Hotel
-    const hotel = new Tutorial({
+    const hotel = new Hotel({
         name: req.body.name,
-        location: req.body.location
+        location: req.body.location,
+        bookmark: req.body.bookmark || false
     });
 
     // Save Hotel to database
-    Tutorial.create(hotel, (err, data) => {
+    Hotel.create(hotel, (err, data) => {
         if (err)
-         res.status(500).send({
-             message:
-                "Some error occurred while creating the Tutorial."
-         });
+            res.status(500).send({
+                message:
+                    "Some error occurred while creating the Tutorial."
+            });
         else res.send(data);
     });
 };
@@ -29,7 +30,7 @@ exports.create = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
     const name = req.query.name;
-    Tutorial.getAll(name, (err, data) => {
+    Hotel.getAll(name, (err, data) => {
         if (err)
             res.status(500).send({
                 message:
