@@ -11,7 +11,9 @@ exports.createUser = (req, res) => {
 
     // Create Users
     const users = new Users({
-        username: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
         pass: req.body.pass
     });
 
@@ -22,19 +24,32 @@ exports.createUser = (req, res) => {
                 message:
                     "Some error occurred while creating the Tutorial."
             });
-        else res.send(data);
+        else res.status(200).send({
+                status:
+                    "true",
+                
+                message:
+                    "Success.",
+                data
+        });
     });
 }
 
 // Retrieve all Tutorials from the database.
 exports.findAllUser = (req, res) => {
-    const username = req.query.username;
-    Users.getAllUser(username, (err, data) => {
+    const email = req.query.email;
+    Users.getAllUser(email, (err, data) => {
         if (err)
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving tutorials."
+                    err.message || "Some error occurred while retrieving users."
             });
-        else res.send(data);
+        else res.status(200).send({
+                status:
+                    "true",
+                message:
+                    "Success",
+                data
+        });
     });
 };

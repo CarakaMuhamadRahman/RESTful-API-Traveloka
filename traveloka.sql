@@ -50,7 +50,7 @@ INSERT INTO `hotel` (`id`, `name`, `location`, `bookmark`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `pass` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -58,7 +58,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `pass`) VALUES
+INSERT INTO `users` (`id`, `email`, `pass`) VALUES
 (1, 'cmr220821', '220821'),
 (2, 'dandi_irwanto', '123456');
 

@@ -3,7 +3,9 @@ const sql = require("./db.js");
 // Create users
 // Constructor
 const Users = function(users) {
-    this.username = users.username;
+    this.name = users.name;
+    this.email = users.email;
+    this.phone = users.phone;
     this.pass = users.pass;
 };
 
@@ -20,10 +22,10 @@ Users.createUser = (newUsers, result) => {
 };
 
 // Get All Users
-Users.getAllUser = (username, result) => {
+Users.getAllUser = (email, result) => {
     let query = "SELECT * FROM users";
-    if (username) {
-        query += ` WHERE username LIKE '%${username}%'`;
+    if (email) {
+        query += ` WHERE email LIKE '%${email}%'`;
     }
     sql.query(query, (err, res) => {
         if (err) {
