@@ -21,21 +21,37 @@ exports.create = (req, res) => {
         if (err)
             res.status(500).send({
                 message:
-                    "Some error occurred while creating the Tutorial."
+                    "Some error occurred while creating the Hotels."
             });
         else res.send(data);
     });
 };
 
-// Retrieve all Tutorials from the database.
+// Retrieve all Hotel from the database.
 exports.findAll = (req, res) => {
     const name = req.query.name;
     Hotel.getAll(name, (err, data) => {
         if (err)
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving tutorials."
+                    err.message || "Some error occurred while retrieving Hotels."
             });
         else res.send(data);
+    });
+};
+
+exports.findOne = (req, res) => {
+    hotel.findById(req,params.id, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                    message: `Not found Hotel with id ${req.params.id}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error retrieving Hotels with id " + req.params.id
+                });
+            }
+        } else res.send(data);
     });
 };
