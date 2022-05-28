@@ -19,7 +19,7 @@ Hotel.create = (newHotel, result) => {
     });
 };
 
-hotel.findById = (id, result) => {
+Hotel.findById = (id, result) => {
     sql.query(`SELECT * FROM hotel WHERE id = "${id}"`, (err, res) => {
         if (err) {
             console.log("error: ", err);
