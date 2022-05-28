@@ -1,6 +1,6 @@
 module.exports = {
-    HOST: "localhost",
+    HOST: "34.101.173.240",
     USER: "root",
-    PASSWORD: "",
+    PASSWORD: "123456",
     DB: "traveloka"
 };
